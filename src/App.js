@@ -1,31 +1,32 @@
-const os = ["Android","Blackberry","iPhone","Windows Phone"];
-const manufaturers = ["Samsung", "HTC", "Micromax", "Apple"];
+import './App.css';
+import logo from './Apoorva-logo.png';
 
 function App() {
   return (
-    <div>
-      <div><b>Mobile Operating System</b>
-        <ul>
-          {os.map((e)=>
-          {
-            return <Skill skill={e}/>;
-          })}
-        </ul>
-      </div>
-      <div><b>Mobile Manufacturers</b>
-        <ul>
-          {manufaturers.map((e)=> {
-            return <Skill skill={e}/>;
-          })}
-        </ul>
-      </div>
-    </div>
+    <nav className="App">
+      <Logo path={logo} />
+      <Links options={["Services","Projects","About"]} />
+      <Button />
+    </nav>
   );
 }
 
-function Skill({skill})
-{
-  return <li>{skill}</li>
+const Logo = (props) => {
+  return <img src={props.path} alt="logo"></img>
+}
+
+const Links = (props) => {
+  return (
+    <ul className="menu">
+      {props.options.map((e) => {
+        return <li className="options">{e}</li>
+      })}
+    </ul>
+  )
+}
+
+const Button = () => {
+  return <button>Contact</button>
 }
 
 export default App;
